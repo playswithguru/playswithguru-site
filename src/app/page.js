@@ -1,178 +1,333 @@
 import Image from "next/image";
 
-export default function Home() {
+const APP_LOGIN_URL = "https://app.playswithguru.com/login";
+
+const NAV = [
+  { label: "Platform", href: "#platform" },
+  { label: "Products", href: "#products" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
+const PRODUCT_CARDS = [
+  {
+    title: "Prop Market (PWG)",
+    desc: "Sports prop analytics designed for clarity — filtering, comparisons, and decision support across multiple leagues.",
+    bullets: ["Probabilities & tags", "Multi-sport coverage", "Clean decision UI"],
+  },
+  {
+    title: "The Earnings Guru (TEG)",
+    desc: "Earnings-focused market insights that organize timing, sentiment, and multi-timeframe confirmation into actionable signals.",
+    bullets: ["Earnings timing buckets", "Trend + momentum context", "Strategy suggestions (non-advisory)"],
+  },
+  {
+    title: "Pipelines & Scoring Engine",
+    desc: "A scalable data pipeline + scoring layer that powers both PWG and TEG, built to expand across new sports and markets.",
+    bullets: ["Scalable architecture", "Consistent scoring", "Extensible product surface"],
+  },
+];
+
+function Header() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      {/* Top Nav */}
-      <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-          <div className="font-extrabold tracking-tight text-lg">
+    <header className="sticky top-0 z-50 border-b" style={{ borderColor: "var(--pwg-border)", background: "rgba(255,255,255,0.85)", backdropFilter: "blur(12px)" }}>
+      <div className="pwg-container flex h-14 items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="h-12 w-12 overflow-hidden rounded-xl">
+            <Image
+              src="/brand/playswithguru-logo.png"
+              alt="PlaysWithGuru"
+              width={96}
+              height={96}
+              className="h-full w-full object-contain"
+              priority
+            />
+          </div>
+          <div className="font-semibold tracking-tight text-lg text-slate-900">
             PlaysWithGuru
           </div>
-          <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <a href="#platform" className="hover:text-slate-900">Platform</a>
-            <a href="#products" className="hover:text-slate-900">Products</a>
-            <a href="#about" className="hover:text-slate-900">About</a>
-            <a href="#contact" className="hover:text-slate-900">Contact</a>
-          </nav>
+        </div>
+
+        <nav className="hidden items-center gap-6 md:flex">
+          {NAV.map((n) => (
+            <a key={n.href} href={n.href} className="text-sm font-medium text-slate-700 hover:opacity-80">
+              {n.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
           <a
-            href="https://app.playswithguru.com"
-            className="rounded-lg bg-slate-900 text-white px-4 py-2 text-sm font-semibold hover:bg-slate-800"
+            href="#products"
+            className="hidden rounded-xl px-3 py-2 text-sm font-semibold md:inline-flex"
+            style={{ border: "1px solid var(--pwg-border)" }}
+          >
+            Explore
+          </a>
+          <a
+            href={APP_LOGIN_URL}
+            className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-white shadow-sm"
+            style={{ background: "linear-gradient(135deg, var(--pwg-navy), var(--pwg-blue))" }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Launch App
           </a>
         </div>
-      </header>
+      </div>
+    </header>
+  );
+}
 
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+function SectionTitle({ eyebrow, title, desc }) {
+  return (
+    <div className="mb-8">
+      <div className="pwg-pill text-slate-700">
+        <span
+          className="inline-block h-2 w-2 rounded-full"
+          style={{ background: "var(--pwg-cyan)" }}
+        />
+        {eyebrow}
+      </div>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+        {title}
+      </h2>
+      <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
+        {desc}
+      </p>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <div>
+      <Header />
+
+      {/* HERO */}
+      <main className="pwg-container">
+        <section className="grid items-center gap-10 py-14 md:grid-cols-2 md:py-20">
           <div>
-            <p className="text-sm font-semibold text-slate-500 mb-3">
+            <div className="pwg-pill text-slate-700">
+              <span
+                className="inline-block h-2 w-2 rounded-full"
+                style={{ background: "var(--pwg-gold)" }}
+              />
               Data-driven forecasting for sports & markets
-            </p>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-              Predictive analytics, built for real-world decisions.
+            </div>
+
+            <h1 className="mt-4 text-5xl font-semibold tracking-tight text-slate-900 md:text-6xl">
+              Predictive analytics,
+              <br />
+              built for real-world decisions.
             </h1>
-            <p className="mt-5 text-lg text-slate-600 leading-relaxed">
-              PlaysWithGuru is a predictive analytics company building tools that help users
-              evaluate probability, risk, and opportunity across sports props and market plays —
-              with a clean, user-first experience.
+
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
+              PlaysWithGuru builds predictive products that help users evaluate
+              probability, risk, and opportunity across sports props, earnings events,
+              and market plays — with a clean, user-first experience.
             </p>
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#products"
-                className="rounded-lg bg-slate-900 text-white px-5 py-3 text-sm font-semibold hover:bg-slate-800 text-center"
+                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm"
+                style={{ background: "linear-gradient(135deg, var(--pwg-navy), var(--pwg-blue))" }}
               >
                 Explore Products
               </a>
               <a
-                href="https://app.playswithguru.com"
-                className="rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold hover:bg-slate-50 text-center"
+                href={APP_LOGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold"
+                style={{ border: "1px solid var(--pwg-border)" }}
               >
                 Go to App
               </a>
+
             </div>
 
-            <div className="mt-8 text-sm text-slate-500">
-              Corporate site: <span className="font-semibold">playswithguru.com</span> • App:{" "}
-              <span className="font-semibold">app.playswithguru.com</span>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-600">
+              <span className="pwg-pill">Probability modeling</span>
+              <span className="pwg-pill">Trend & momentum context</span>
+              <span className="pwg-pill">Decision UX</span>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-8 shadow-sm">
-            <div className="text-sm font-semibold text-slate-700">What we optimize</div>
-            <ul className="mt-4 space-y-3 text-slate-600">
-              <li>• Probability modeling & decision scoring</li>
-              <li>• Trend & momentum context (multi-timeframe)</li>
-              <li>• Clean UX for filtering, comparison, and action</li>
-              <li>• Scalable pipelines across multiple sports & markets</li>
+          <div className="pwg-card p-6 md:p-7">
+            <div className="flex items-center justify-between">
+              <div className="text-sm font-semibold text-slate-900">What we optimize</div>
+              <div className="text-xs text-slate-500">PlaysWithGuru</div>
+            </div>
+
+            <ul className="mt-4 space-y-3 text-slate-700">
+              <li className="flex gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full" style={{ background: "var(--pwg-cyan)" }} />
+                <span>Probability modeling & decision scoring</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full" style={{ background: "var(--pwg-cyan)" }} />
+                <span>Trend & momentum context (multi-timeframe)</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full" style={{ background: "var(--pwg-cyan)" }} />
+                <span>Clean UX for filtering, comparison, and action</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full" style={{ background: "var(--pwg-cyan)" }} />
+                <span>Scalable pipelines across multiple sports & markets</span>
+              </li>
             </ul>
 
-            <div className="mt-8 rounded-xl bg-white border border-slate-200 p-5">
-              <div className="text-sm font-semibold">Quick links</div>
-              <div className="mt-3 flex flex-col gap-2 text-sm">
-                <a className="text-slate-700 hover:underline" href="#platform">Platform overview</a>
-                <a className="text-slate-700 hover:underline" href="#products">Products</a>
-                <a className="text-slate-700 hover:underline" href="#contact">Contact</a>
+            <div className="mt-6 rounded-2xl p-4" style={{ border: "1px solid var(--pwg-border)" }}>
+              <div className="text-sm font-semibold text-slate-900">Quick links</div>
+              <div className="mt-3 grid gap-2 text-sm">
+                <a className="pwg-link text-slate-700" href="#platform">Platform overview</a>
+                <a className="pwg-link text-slate-700" href="#products">Products</a>
+                <a className="pwg-link text-slate-700" href="#contact">Contact</a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Platform */}
-      <section id="platform" className="bg-slate-50 border-t border-b border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 className="text-2xl font-extrabold tracking-tight">Platform</h2>
-          <p className="mt-3 text-slate-600 max-w-3xl">
-            A unified experience that makes complex analysis usable — filtering, ranking,
-            and drill-down insights without clutter.
-          </p>
+        {/* PLATFORM */}
+        <section id="platform" className="py-14 md:py-20">
+          <SectionTitle
+            eyebrow="Platform"
+            title="A consistent scoring layer across verticals."
+            desc="We design our products around how people actually make decisions: reduce noise, surface context, and present the next best action."
+          />
 
-          <div className="mt-8 grid md:grid-cols-3 gap-4">
+          <div className="grid gap-6 md:grid-cols-3">
             {[
-              { title: "Signal Clarity", desc: "Consistent labels and intuitive confidence cues." },
-              { title: "Depth on Demand", desc: "Details when you need them, simplicity when you don’t." },
-              { title: "Built to Scale", desc: "Multi-sport and multi-market architecture from day one." },
+              {
+                title: "Signal clarity",
+                desc: "Clean labels, comparables, and context so users can act faster with confidence.",
+              },
+              {
+                title: "Scalable data",
+                desc: "A pipeline approach that expands across leagues, markets, and new features without redesigning everything.",
+              },
+              {
+                title: "User-first UX",
+                desc: "A premium interface built for filtering, comparing, and tracking outcomes over time.",
+              },
             ].map((c) => (
-              <div key={c.title} className="rounded-2xl bg-white border border-slate-200 p-6">
-                <div className="font-bold">{c.title}</div>
-                <div className="mt-2 text-slate-600 text-sm leading-relaxed">{c.desc}</div>
+              <div key={c.title} className="pwg-card p-6">
+                <div className="text-base font-semibold text-slate-900">{c.title}</div>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{c.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Products */}
-      <section id="products" className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="text-2xl font-extrabold tracking-tight">Products</h2>
-        <p className="mt-3 text-slate-600 max-w-3xl">
-          Two focus areas under the PlaysWithGuru umbrella.
-        </p>
+        {/* PRODUCTS */}
+        <section id="products" className="py-14 md:py-20">
+          <SectionTitle
+            eyebrow="Products"
+            title="Built for sports props and market plays."
+            desc="Two product lines — one unified engine. PWG supports sports prop decisioning; TEG focuses on earnings-driven market opportunities."
+          />
 
-        <div className="mt-8 grid md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-slate-200 p-7">
-            <div className="text-sm font-semibold text-slate-500">Prop Market</div>
-            <div className="mt-2 text-xl font-extrabold">Sports prediction dashboard</div>
-            <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-              Multi-sport insights, filtering, comparisons, and daily decision support for prop evaluation.
-            </p>
+          <div className="grid gap-6 md:grid-cols-3">
+            {PRODUCT_CARDS.map((p) => (
+              <div key={p.title} className="pwg-card p-6">
+                <div className="text-base font-semibold text-slate-900">{p.title}</div>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{p.desc}</p>
+                <ul className="mt-4 space-y-2 text-sm text-slate-700">
+                  {p.bullets.map((b) => (
+                    <li key={b} className="flex gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full" style={{ background: "var(--pwg-gold)" }} />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl p-6" style={{ border: "1px solid var(--pwg-border)" }}>
+            <div>
+              <div className="text-base font-semibold text-slate-900">Ready to see the platform?</div>
+              <div className="mt-1 text-sm text-slate-600">
+                Launch the app to explore PWG / TEG modules.
+              </div>
+            </div>
             <a
-              href="https://app.playswithguru.com"
-              className="mt-5 inline-block rounded-lg bg-slate-900 text-white px-4 py-2 text-sm font-semibold hover:bg-slate-800"
+              href={APP_LOGIN_URL}
+              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm"
+              style={{ background: "linear-gradient(135deg, var(--pwg-navy), var(--pwg-blue))" }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Open App
+              Launch App
             </a>
           </div>
+        </section>
 
-          <div className="rounded-2xl border border-slate-200 p-7">
-            <div className="text-sm font-semibold text-slate-500">Stock Market</div>
-            <div className="mt-2 text-xl font-extrabold">TEG — The Earnings Guru</div>
-            <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-              Post-earnings reaction forecasting with structured scoring and strategy context.
+        {/* ABOUT */}
+        <section id="about" className="py-14 md:py-20">
+          <SectionTitle
+            eyebrow="About"
+            title="Built by builders."
+            desc="PlaysWithGuru is a data-driven analytics company focused on turning complex signals into practical decisions — without the clutter."
+          />
+
+          <div className="pwg-card p-7">
+            <p className="text-base leading-relaxed text-slate-700">
+              Our philosophy is simple: combine probability modeling with trend context, present it in a clean interface,
+              and keep the experience focused on what matters — clarity, confidence, and repeatability.
             </p>
-            <span className="mt-5 inline-block rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700">
-              Coming soon
-            </span>
+            <p className="mt-4 text-sm text-slate-600">
+              Note: PlaysWithGuru products are for informational and educational purposes and are not financial advice.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* About */}
-      <section id="about" className="bg-white border-t border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 className="text-2xl font-extrabold tracking-tight">About</h2>
-          <p className="mt-3 text-slate-600 max-w-3xl leading-relaxed">
-            PlaysWithGuru builds predictive analytics that respect the user: clean interfaces,
-            disciplined methodology, and scalable systems designed for long-term reliability.
-          </p>
-        </div>
-      </section>
+        {/* CONTACT */}
+        <section id="contact" className="py-14 md:py-20">
+          <SectionTitle
+            eyebrow="Contact"
+            title="Let’s connect."
+            desc="Partnerships, press, product questions, and early access requests."
+          />
 
-      {/* Contact */}
-      <section id="contact" className="bg-slate-50 border-t border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 className="text-2xl font-extrabold tracking-tight">Contact</h2>
-          <p className="mt-3 text-slate-600 max-w-3xl">
-            Want to partner, invest, or request a demo?
-          </p>
-          <div className="mt-6 rounded-2xl bg-white border border-slate-200 p-6">
-            <div className="text-sm text-slate-600">
-              Email: <span className="font-semibold">playswithguru@gmail.com</span>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="pwg-card p-6">
+              <div className="text-base font-semibold text-slate-900">Email</div>
+              <p className="mt-2 text-sm text-slate-600">
+                Reach us at{" "}
+                <a className="pwg-link" href="mailto:playswithguru@gmail.com">
+                  playswithguru@gmail.com
+                </a>
+              </p>
+            </div>
+
+            <div className="pwg-card p-6">
+              <div className="text-base font-semibold text-slate-900">App access</div>
+              <p className="mt-2 text-sm text-slate-600">
+                Use the Launch App button or go directly to{" "}
+                <a className="pwg-link" href={APP_LOGIN_URL}>
+                  app.playswithguru.com/login
+                </a>
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className="border-t border-slate-200">
-        <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-500">
-          © {new Date().getFullYear()} PlaysWithGuru. All rights reserved.
-        </div>
-      </footer>
-    </main>
+        <footer className="py-10 text-sm text-slate-500">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-6" style={{ borderColor: "var(--pwg-border)" }}>
+            <div>© {new Date().getFullYear()} PlaysWithGuru. All rights reserved.</div>
+            <div className="flex gap-4">
+              <a className="hover:opacity-80" href="#platform">Platform</a>
+              <a className="hover:opacity-80" href="#products">Products</a>
+              <a className="hover:opacity-80" href="/privacy">Privacy</a>
+              <a className="hover:opacity-80" href="/terms">Terms</a>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
   );
 }
-
