@@ -32,7 +32,7 @@ function Header() {
     <header className="sticky top-0 z-50 border-b" style={{ borderColor: "var(--pwg-border)", background: "rgba(255,255,255,0.85)", backdropFilter: "blur(12px)" }}>
       <div className="pwg-container flex h-14 items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="h-12 w-12 overflow-hidden rounded-xl">
+          <div className="h-16 w-16 overflow-hidden rounded-xl">
             <Image
               src="/brand/playswithguru-logo.png"
               alt="PlaysWithGuru"
@@ -115,7 +115,7 @@ export default function Home() {
               Data-driven forecasting for sports & markets
             </div>
 
-            <h1 className="mt-4 text-5xl font-semibold tracking-tight text-slate-900 md:text-6xl">
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
               Predictive analytics,
               <br />
               built for real-world decisions.
