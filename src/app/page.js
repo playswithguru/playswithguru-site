@@ -29,27 +29,41 @@ const PRODUCT_CARDS = [
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b" style={{ borderColor: "var(--pwg-border)", background: "rgba(255,255,255,0.85)", backdropFilter: "blur(12px)" }}>
-      <div className="pwg-container flex h-14 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="h-20 w-20 overflow-hidden rounded-xl">
+    <header
+      className="sticky top-0 z-50 border-b"
+      style={{
+        borderColor: "var(--pwg-border)",
+        background: "rgba(255,255,255,0.85)",
+        backdropFilter: "blur(12px)",
+      }}
+    >
+      {/* 1) Make the header tall enough for a 96px logo + padding */}
+      <div className="pwg-container flex min-h-[112px] items-center justify-between py-2">
+        <div className="flex items-center gap-3">
+          {/* 2) Your requested logo size */}
+          <div className="h-24 w-24 overflow-hidden rounded-xl">
             <Image
               src="/brand/playswithguru-logo.png"
               alt="PlaysWithGuru"
-              width={96}
-              height={96}
+              width={192}
+              height={192}
               className="h-full w-full object-contain"
               priority
             />
           </div>
-          <div className="font-semibold tracking-tight text-lg text-slate-900">
+
+          <div className="font-semibold tracking-tight text-xl text-slate-900">
             PlaysWithGuru
           </div>
         </div>
 
         <nav className="hidden items-center gap-6 md:flex">
           {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm font-medium text-slate-700 hover:opacity-80">
+            <a
+              key={n.href}
+              href={n.href}
+              className="text-sm font-medium text-slate-700 hover:opacity-80"
+            >
               {n.label}
             </a>
           ))}
@@ -66,7 +80,9 @@ function Header() {
           <a
             href={APP_LOGIN_URL}
             className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold text-white shadow-sm"
-            style={{ background: "linear-gradient(135deg, var(--pwg-navy), var(--pwg-blue))" }}
+            style={{
+              background: "linear-gradient(135deg, var(--pwg-navy), var(--pwg-blue))",
+            }}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -77,6 +93,7 @@ function Header() {
     </header>
   );
 }
+
 
 function SectionTitle({ eyebrow, title, desc }) {
   return (
@@ -308,8 +325,8 @@ export default function Home() {
               <div className="text-base font-semibold text-slate-900">App access</div>
               <p className="mt-2 text-sm text-slate-600">
                 Use the Launch App button or go directly to{" "}
-                <a className="pwg-link" href={APP_LOGIN_URL}>
-                  app.playswithguru.com/login
+                <a className="pwg-link" href="https://app.playswithguru.com" target="_blank" rel="noopener noreferrer">
+                  app.playswithguru.com
                 </a>
               </p>
             </div>
