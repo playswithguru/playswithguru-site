@@ -32,7 +32,7 @@ function Header() {
     <header className="sticky top-0 z-50 border-b" style={{ borderColor: "var(--pwg-border)", background: "rgba(255,255,255,0.85)", backdropFilter: "blur(12px)" }}>
       <div className="pwg-container flex h-14 items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="h-16 w-16 overflow-hidden rounded-xl">
+          <div className="h-20 w-20 overflow-hidden rounded-xl">
             <Image
               src="/brand/playswithguru-logo.png"
               alt="PlaysWithGuru"
