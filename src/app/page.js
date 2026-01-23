@@ -139,7 +139,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              PlaysWithGuru helps bettors and earnings players evaluate probability, risk, and context — so you make fewer decisions, and better ones.
+              PlaysWithGuru is decision support for disciplined bettors and earnings traders who value context, structure, and risk clarity over promises.
             </p>
 
 
@@ -157,17 +157,17 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold"
                 style={{ border: "1px solid var(--pwg-border)" }}
-              >
-                Go to App
-              </a>
+              >Open Dashboard</a>
 
             
-<div className="mt-7 max-w-xl rounded-2xl p-4" style={{ border: "1px solid var(--pwg-border)" }}>
-  <div className="text-sm font-semibold text-slate-900">Manifesto</div>
-  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-    We don’t sell certainty. We build decision systems.{" "}
-    <a className="pwg-link" href="/manifesto">Decide with care.</a>
-  </p>
+<div className="mt-8 max-w-xl text-sm text-slate-600">
+  <div className="pwg-card p-4">
+    <div className="text-xs font-semibold tracking-wide text-slate-900">Manifesto</div>
+    <p className="mt-2 leading-relaxed">
+      We don’t sell certainty. We build decision systems.{" "}
+      <a className="pwg-link" href="/manifesto">Read the Manifesto</a>.
+    </p>
+  </div>
 </div>
 
 </div>
@@ -295,13 +295,12 @@ export default function Home() {
           <SectionTitle
             eyebrow="About"
             title="Built by builders."
-            desc="PlaysWithGuru is a decision support company focused on turning complex signals into practical decisions — without the clutter."
+            desc="PlaysWithGuru is a decision-support company focused on turning complex signals into practical judgments — without the noise."
           />
 
           <div className="pwg-card p-7">
             <p className="text-base leading-relaxed text-slate-700">
-              Our philosophy is simple: combine probability modeling with trend context, present it in a clean interface,
-              and keep the experience focused on what matters — clarity, confidence, and repeatability.
+              Our philosophy is simple: measure signals, respect uncertainty, and present context in a clean interface — so decisions are calmer, clearer, and repeatable.
             </p>
             <p className="mt-4 text-sm text-slate-600">
               Note: PlaysWithGuru products are for informational and educational purposes and are not financial advice.
