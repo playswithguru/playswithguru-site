@@ -129,17 +129,19 @@ export default function Home() {
                 className="inline-block h-2 w-2 rounded-full"
                 style={{ background: "var(--pwg-gold)" }}
               />
-              Decision support for sports props and earnings plays
+              Data-driven forecasting for sports & markets
             </div>
 
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-              Decision support,
+              Predictive analytics,
               <br />
-              built for uncertainty.
+              built for real-world decisions.
             </h1>
 
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              PlaysWithGuru helps bettors and earnings players evaluate probability, risk, and context — so you make fewer decisions, and better ones.
+              PlaysWithGuru builds predictive products that help users evaluate
+              probability, risk, and opportunity across sports props, earnings events,
+              and market plays — with a clean, user-first experience.
             </p>
 
 
@@ -161,16 +163,7 @@ export default function Home() {
                 Go to App
               </a>
 
-            
-<div className="mt-7 max-w-xl rounded-2xl p-4" style={{ border: "1px solid var(--pwg-border)" }}>
-  <div className="text-sm font-semibold text-slate-900">Manifesto</div>
-  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-    We don’t sell certainty. We build decision systems.{" "}
-    <a className="pwg-link" href="/manifesto">Decide with care.</a>
-  </p>
-</div>
-
-</div>
+            </div>
 
             <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-600">
               <span className="pwg-pill">Probability modeling</span>
@@ -250,8 +243,8 @@ export default function Home() {
         <section id="products" className="py-14 md:py-20">
           <SectionTitle
             eyebrow="Products"
-            title="Built for sports props and earnings plays."
-            desc="Two product lines — one unified engine. PWG supports sports prop decisioning; TEG focuses on earnings-driven opportunities (Phase 2)."
+            title="Built for sports props and market plays."
+            desc="Two product lines — one unified engine. PWG supports sports prop decisioning; TEG focuses on earnings-driven market opportunities."
           />
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -295,7 +288,7 @@ export default function Home() {
           <SectionTitle
             eyebrow="About"
             title="Built by builders."
-            desc="PlaysWithGuru is a decision support company focused on turning complex signals into practical decisions — without the clutter."
+            desc="PlaysWithGuru is a data-driven analytics company focused on turning complex signals into practical decisions — without the clutter."
           />
 
           <div className="pwg-card p-7">
