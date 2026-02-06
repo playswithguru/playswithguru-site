@@ -12,15 +12,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "PlaysWithGuru — Predictive analytics for sports & markets",
+  // 🔥 positioning shift — NOT predictive
+  title: "PlaysWithGuru — Decision Support for Sports & Markets",
+
   description:
-    "PlaysWithGuru builds predictive analytics products for sports props (PWG) and earnings plays (TEG) — combining probability modeling, trend context, and clean decision UX.",
+    "PlaysWithGuru builds decision support systems for sports and markets — combining probability modeling, trend context, and clean analytics to help you think sharper and make smarter decisions.",
+
   metadataBase: new URL("https://playswithguru.com"),
 
   openGraph: {
-    title: "PlaysWithGuru — Predictive analytics for sports & markets",
+    title: "PlaysWithGuru — Decision Support for Sports & Markets",
     description:
-      "Predictive analytics for sports props and market plays — probability modeling, trend context, and decision UX.",
+      "Decision support tools for sports props and earnings plays — probabilities, context, and clean analytics without hype or picks.",
     url: "https://playswithguru.com",
     siteName: "PlaysWithGuru",
     images: [
@@ -37,9 +40,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "PlaysWithGuru — Predictive analytics for sports & markets",
+    title: "PlaysWithGuru — Decision Support for Sports & Markets",
     description:
-      "Predictive analytics for sports props and market plays — probability modeling, trend context, and decision UX.",
+      "Decision support for sports props and earnings plays. Clarity, probabilities, and context — not picks or predictions.",
     images: ["/brand/playswithguru-logo.png"],
   },
 
@@ -51,7 +54,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0B2A4A", // deep brand navy (safe default)
+  themeColor: "#0B2A4A",
 };
 
 export default function RootLayout({ children }) {
@@ -62,7 +65,6 @@ export default function RootLayout({ children }) {
           geistSans.variable,
           geistMono.variable,
           "antialiased",
-          // ✅ corporate defaults (prevents accidental dark/graveyard)
           "min-h-screen bg-white text-slate-900",
         ].join(" ")}
       >
