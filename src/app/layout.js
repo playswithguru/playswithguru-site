@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { headers } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,64 +11,45 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// ✅ Dynamic metadata so playswithguru.com and app.playswithguru.com both get correct metadataBase/canonical/OG url
-export async function generateMetadata() {
-  const h = headers();
+export const metadata = {
+  // 🔥 positioning shift — NOT predictive
+  title: "PlaysWithGuru — Decision Support for Sports & Markets",
 
-  // Host will be like: "playswithguru.com" or "app.playswithguru.com"
-  const host = h.get("x-forwarded-host") || h.get("host") || "playswithguru.com";
-  const proto = h.get("x-forwarded-proto") || "https";
+  description:
+    "PlaysWithGuru builds decision support systems for sports and markets — combining probability modeling, trend context, and clean analytics to help you think sharper and make smarter decisions.",
 
-  const baseUrl = `${proto}://${host}`;
-  const base = new URL(baseUrl);
+  metadataBase: new URL("https://playswithguru.com"),
 
-  const title = "PlaysWithGuru — Decision Support for Sports & Markets";
-  const description =
-    "PlaysWithGuru builds decision support systems for sports and markets — combining probability modeling, trend context, and clean analytics to help you think sharper and make smarter decisions.";
+  openGraph: {
+    title: "PlaysWithGuru — Decision Support for Sports & Markets",
+    description:
+      "Decision support tools for sports props and earnings plays — probabilities, context, and clean analytics without hype or picks.",
+    url: "https://playswithguru.com",
+    siteName: "PlaysWithGuru",
+    images: [
+      {
+        url: "/brand/playswithguru-logo.png",
+        width: 512,
+        height: 512,
+        alt: "PlaysWithGuru logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 
-  return {
-    title,
-    description,
+  twitter: {
+    card: "summary_large_image",
+    title: "PlaysWithGuru — Decision Support for Sports & Markets",
+    description:
+      "Decision support for sports props and earnings plays. Clarity, probabilities, and context — not picks or predictions.",
+    images: ["/brand/playswithguru-logo.png"],
+  },
 
-    // ✅ now correct for whichever domain you deployed to
-    metadataBase: base,
-
-    // ✅ canonical points to the current host
-    alternates: {
-      canonical: baseUrl,
-    },
-
-    openGraph: {
-      title,
-      description:
-        "Decision support tools for sports props and earnings plays — probabilities, context, and clean analytics without hype or picks.",
-      url: baseUrl,
-      siteName: "PlaysWithGuru",
-      images: [
-        {
-          url: "/brand/playswithguru-logo.png",
-          width: 512,
-          height: 512,
-          alt: "PlaysWithGuru logo",
-        },
-      ],
-      locale: "en_US",
-      type: "website",
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description:
-        "Decision support for sports props and earnings plays. Clarity, probabilities, and context — not picks or predictions.",
-      images: ["/brand/playswithguru-logo.png"],
-    },
-
-    icons: {
-      icon: "/brand/favicon.ico",
-    },
-  };
-}
+  icons: {
+    icon: "/brand/favicon.ico",
+  },
+};
 
 export const viewport = {
   width: "device-width",
