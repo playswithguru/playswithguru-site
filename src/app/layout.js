@@ -11,14 +11,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// ✅ SAFE: no headers(), no generateMetadata()
 export const metadata = {
-  // 🔥 positioning shift — NOT predictive
   title: "PlaysWithGuru — Decision Support for Sports & Markets",
-
   description:
     "PlaysWithGuru builds decision support systems for sports and markets — combining probability modeling, trend context, and clean analytics to help you think sharper and make smarter decisions.",
 
+  // ✅ Keep ONE canonical base. Prefer the marketing domain.
   metadataBase: new URL("https://playswithguru.com"),
+
+  alternates: {
+    canonical: "https://playswithguru.com",
+  },
 
   openGraph: {
     title: "PlaysWithGuru — Decision Support for Sports & Markets",
