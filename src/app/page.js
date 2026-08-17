@@ -29,7 +29,10 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-950">
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-          <a href="#top" className="text-xl font-extrabold tracking-tight">PlaysWithGuru</a>
+          <a href="#top" className="flex items-center gap-3" aria-label="PlaysWithGuru home">
+            <img src="/brand/playswithguru-logo.png" alt="PlaysWithGuru" className="h-16 w-16 object-contain" />
+            <span className="text-xl font-extrabold tracking-tight">PlaysWithGuru</span>
+          </a>
           <nav className="hidden items-center gap-6 text-sm font-semibold text-slate-600 lg:flex">
             <a href="#platform" className="hover:text-slate-950">Platform</a>
             <a href="#products" className="hover:text-slate-950">Products</a>
@@ -58,7 +61,12 @@ export default function Home() {
               <a href="#products" className="rounded-xl bg-[#073b63] px-6 py-3 font-bold text-white hover:bg-[#052f50]">Explore Products</a>
               <a href={appUrl} className="rounded-xl border border-slate-300 px-6 py-3 font-bold text-slate-900 hover:bg-slate-50">Open Dashboard</a>
             </div>
-            <p className="mt-8 text-sm font-medium text-slate-500">We don&apos;t sell certainty. We build decision systems.</p>
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="text-sm font-extrabold text-slate-900">Manifesto</div>
+              <p className="mt-1 text-sm text-slate-600">
+                We don&apos;t sell certainty. We build decision systems. <a href="/manifesto" className="font-semibold text-[#073b63] underline underline-offset-4 hover:text-[#052f50]">Read the Manifesto.</a>
+              </p>
+            </div>
           </div>
 
           <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm md:p-9">
@@ -175,7 +183,7 @@ export default function Home() {
       <footer className="border-t border-slate-200">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-10 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <div>© {new Date().getFullYear()} PlaysWithGuru. All rights reserved.</div>
-          <div className="flex flex-wrap gap-5"><a href="#platform">Platform</a><a href="#products">Products</a><a href="#pricing">Pricing</a><a href="mailto:playswithguru@gmail.com">Contact</a></div>
+          <div className="flex flex-wrap gap-5"><a href="#platform">Platform</a><a href="#products">Products</a><a href="#pricing">Pricing</a><a href="/manifesto">Manifesto</a><a href="mailto:playswithguru@gmail.com">Contact</a></div>
         </div>
       </footer>
     </main>
