@@ -53,7 +53,7 @@ export default function Home() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
           <div>
             <div className="inline-flex rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600">
-              Subscription sports intelligence
+              Simple Sports Intelligence
             </div>
             <h1 className="mt-6 max-w-4xl text-5xl font-black tracking-[-0.045em] text-slate-950 md:text-7xl">
               Decision support,<br />built for uncertainty.
@@ -141,11 +141,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="pricing" className="mx-auto max-w-7xl px-5 py-20">
+      <section id="pricing" className="mx-auto max-w-7xl px-5 py-20 lg:py-16">
         <div className="section-kicker">Pricing</div>
-        <h2 className="section-title">Straightforward PWG Sports access.</h2>
+        <h2 className="section-title">PWG Sports access.</h2>
         <p className="section-copy">Choose monthly or three-month access to the complete subscription digital sports-intelligence platform.</p>
-        <div className="mt-10 grid gap-5 lg:grid-cols-1">
+        <div className="mt-10 grid gap-5 lg:mx-auto lg:max-w-[960px] lg:grid-cols-1">
           <div className="pricing-card featured">
             <div className="pricing-label">PWG SPORTS</div><h3>PWG Sports</h3><p className="pricing-desc">Sports prop intelligence across the broader board, with Guru Overs & Guru Unders.</p>
             <div className="mt-7"><span className="price">$69.99</span><span className="term"> / month</span></div>

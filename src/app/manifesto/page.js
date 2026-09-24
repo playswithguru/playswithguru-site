@@ -19,7 +19,7 @@ export default function ManifestoPage() {
         </div>
 
         <p className="mt-3 text-sm text-neutral-500">
-          Decision support for sports props and earnings plays.
+          Decision support for sports props and other plays.
         </p>
 
         <div className="mt-6 h-px w-full bg-neutral-200" />
